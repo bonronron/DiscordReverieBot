@@ -29,7 +29,7 @@ client.on("message",(msg)=>{
 
 
 
-    if(message.member.roles.has(Alit)){
+    if(msg.member.roles.has(Alit)){
         //MOD COMMANDS
             //announce messages
         if(cmd.slice(0,"announce".length)==="announce"){ //Make announcements in announcement channel
