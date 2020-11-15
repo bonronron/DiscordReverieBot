@@ -16,7 +16,7 @@ client.on("message",(msg)=>{
     const cmd = msg.content.slice(prefix.length).toLowerCase();
     if(cmd==="checkadd"){client.emit("guildMemberAdd", msg.member);}
     
-    let Alit = msg.guild.roles.cache.find("name", "Alit");
+    let Alit = msg.guild.roles.cache.find(role => role.name === "Alit");
 
 //Commands
         //TAGS
