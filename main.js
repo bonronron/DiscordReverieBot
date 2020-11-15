@@ -22,6 +22,7 @@ client.on("message",(msg)=>{
     if(cmd==="tag bias"){
         msg.channel.send("Confirmation Bias :man_tipping_hand:");
     }
+        //ADD MORE TAGS HERE
     
 
 
