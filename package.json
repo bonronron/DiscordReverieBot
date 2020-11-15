@@ -1,0 +1,14 @@
+{
+  "name": "reveriebot",
+  "version": "0.0.1",
+  "description": "Revie is a Discord application Bot designed for the Reverie Community Server",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rohan Deuskar",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.4.1"
+  }
+}
