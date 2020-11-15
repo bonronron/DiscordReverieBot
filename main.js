@@ -15,7 +15,8 @@ client.on("message",(msg)=>{
     //Debugging Checks
     const cmd = msg.content.slice(prefix.length).toLowerCase();
     if(cmd==="checkadd"){client.emit("guildMemberAdd", msg.member);}
-
+    
+    let Alit = message.guild.roles.find("name", "Alit");
 
 //Commands
         //TAGS
@@ -28,36 +29,37 @@ client.on("message",(msg)=>{
 
 
 
+    if(message.member.roles.has(Alit)){
         //MOD COMMANDS
             //announce messages
-    if(cmd.slice(0,"announce".length)==="announce"){ //Make announcements in announcement channel
-        const embed = new Discord.MessageEmbed()
-        .setTitle("Hey Everyone!",logolink)
-        .setColor(0xff0000)
-        .setDescription(msg.content.slice("announce  ".length))
-        .setThumbnail(logolink);
-        msg.guild.channels.cache.find(ch => ch.name === 'announcements').send(embed);
-        msg.guild.channels.cache.find(ch => ch.name === 'announcements').send("@everyone");
-    }
+        if(cmd.slice(0,"announce".length)==="announce"){ //Make announcements in announcement channel
+            const embed = new Discord.MessageEmbed()
+            .setTitle("Hey Everyone!",logolink)
+            .setColor(0xff0000)
+            .setDescription(msg.content.slice("announce  ".length))
+            .setThumbnail(logolink);
+            msg.guild.channels.cache.find(ch => ch.name === 'announcements').send(embed);
+            msg.guild.channels.cache.find(ch => ch.name === 'announcements').send("@everyone");
+        }
 
-            //join server reaction roles
-    if(cmd.slice(0,"join channel".length) === "join channel"){//Set Reaction role message Channel 
-        joiningservermsg["channel"] = msg.guild.channels.cache.find(ch => ch.name === cmd.slice("join channel ".length));
-        msg.channel.send(`Join Channel set to ${joiningservermsg["channel"]}`);
+                //join server reaction roles
+        if(cmd.slice(0,"join channel".length) === "join channel"){//Set Reaction role message Channel 
+            joiningservermsg["channel"] = msg.guild.channels.cache.find(ch => ch.name === cmd.slice("join channel ".length));
+            msg.channel.send(`Join Channel set to ${joiningservermsg["channel"]}`);
+        }
+        if(cmd.slice(0,"join msg".length) === "join msg"){//Set Reaction role message from channel
+            if (joiningservermsg["channel"]==null) {msg.channel.send("Please set a channel first");return;}
+            joiningservermsg["channel"].messages.fetch(cmd.slice("join msg ".length))
+            .then(message => joiningservermsg["message"]=message)
+            .catch(console.error);
+            msg.channel.send(`Join Message set!`);
+            //console.log(joiningservermsg[0]);
+        }
+        if(cmd.slice(0,"join emoji".length) === "join emoji"){//Set Reaction role emoji Channel 
+            joiningservermsg["emoji"] = cmd.slice("join emoji ".length);
+            msg.channel.send(`Join Emoji set to ${joiningservermsg["emoji"]}`);
+        }
     }
-    if(cmd.slice(0,"join msg".length) === "join msg"){//Set Reaction role message from channel
-        if (joiningservermsg["channel"]==null) {msg.channel.send("Please set a channel first");return;}
-        joiningservermsg["channel"].messages.fetch(cmd.slice("join msg ".length))
-        .then(message => joiningservermsg["message"]=message)
-        .catch(console.error);
-        msg.channel.send(`Join Message set!`);
-        //console.log(joiningservermsg[0]);
-    }
-    if(cmd.slice(0,"join emoji".length) === "join emoji"){//Set Reaction role emoji Channel 
-        joiningservermsg["emoji"] = cmd.slice("join emoji ".length);
-        msg.channel.send(`Join Emoji set to ${joiningservermsg["emoji"]}`);
-    }
-
 
     //HELP COMMAND
     if(cmd === "help"){
