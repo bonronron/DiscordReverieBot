@@ -16,7 +16,7 @@ client.on("message",(msg)=>{
     const cmd = msg.content.slice(prefix.length).toLowerCase();
     if(cmd==="checkadd"){client.emit("guildMemberAdd", msg.member);}
     
-    let Alit = message.guild.roles.find("name", "Alit");
+    let Alit = msg.guild.roles.find("name", "Alit");
 
 //Commands
         //TAGS
@@ -27,7 +27,7 @@ client.on("message",(msg)=>{
     //ADD MORE TAGS HERE
     
 
-    
+
     if(msg.member.roles.has(Alit)){
         //MOD COMMANDS
             //announce messages
