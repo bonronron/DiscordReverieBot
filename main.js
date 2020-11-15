@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
-const { Ctoken, prefix } = require('./config.json');
+const Ctoken = process.env.Ctoken;
+const prefix = process.env.prefix;
 const help = require('./commands.json');
 const logolink = "https://i.imgur.com/jkaLM5L.png";
 const client = new Discord.Client();
