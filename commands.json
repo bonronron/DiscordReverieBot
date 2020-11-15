@@ -1,8 +1,8 @@
 {
-    "tag": "Tags a phrase used in the community",
-    "join" : "Used to set reaction role for the community\n\tUse ?join channel [channelname] to set the message channel\n\tUse ?join message [messageid] to set the message\n\tUse ?join emoji [emoji] to set the reaction emoji(By Default all emojis are considered)",
-    "help": "Provides help on all commands",
-    "announce": "Announces message in announcement channel"
+    "?tag": "Tags a phrase used in the community",
+    "?join" : "Used to set reaction role for the community\n\tUse ?join channel [channelname] to set the message channel\n\tUse ?join message [messageid] to set the message\n\tUse ?join emoji [emoji] to set the reaction emoji(By Default all emojis are considered)",
+    "?help": "Provides help on all commands",
+    "?announce": "Announces message in announcement channel"
 
 
 }

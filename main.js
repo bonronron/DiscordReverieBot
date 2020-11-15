@@ -22,7 +22,8 @@ client.on("message",(msg)=>{
     if(cmd==="tag bias"){
         msg.channel.send("Confirmation Bias :man_tipping_hand:");
     }
-        //ADD MORE TAGS HERE
+    if(cmd==="tag introduce") {msg.channel.send("Hi! I'm Revie :robot:. I'm Reverie's own Discord bot. \nYou can use ?help to see my commands. ")}
+    //ADD MORE TAGS HERE
     
 
 
